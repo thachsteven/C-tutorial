@@ -1,0 +1,245 @@
+ 
+ 
+ <!-- LINK BOOTSTRAP CHO CẢ 2 PAGE, LINK CSS, SCRIPT LA QUAN TRỌNG NHẤT -->
+ 
+ 
+ <!-- NavBar -->
+
+ <nav>
+    <div class="navbar-items">
+        <a href="#">HOME</a>
+        <a href="#">ENGLISH COURSE</a>
+        <a href="#">TRAINING CENTER</a>
+        <a href="#">REGISTER</a>
+        <a href="#">CONTACT</a>
+    </div>
+</nav>
+
+<!-- CSS NavBar -->
+
+.navbar-items {
+display: flex;
+justify-content: space-around;
+align-items: center;
+}
+
+<!-- Link bootstrap -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+
+<!-- Input full name -->
+<input type="text" id="fullname" name="fullname">
+
+if(fullnameValue.length === 0) {
+alert('Full name cannot be blank');
+return;
+}
+
+
+<!-- Input Gender -->
+<input type="radio" id = "male" name="gender" value="Male"checked> Male
+<input type="radio" id = "female" name="gender" value="Female"> Female
+
+if(document.getElementById('male').checked) {
+gender = document.getElementById('male').value;
+}
+else {
+gender = document.getElementById('female').value;
+}
+
+
+
+
+<!-- Input day of birth --> 
+<input type="date" id="birthday" name="birthday">
+var dob = document.getElementById('birthday').value;
+
+    var dobB = new Date(dob);
+    var today = new Date();
+    var age = (today.getFullYear()-dobB.getFullYear());
+    if(age<15) {
+        alert('Your age must be between 15');
+        document.getElementById('birthday').focus();
+        return;
+    }
+
+
+<!-- Input Address --> 
+<input type="text" id="address" name="address">
+
+if(addressValue.length === 0) {
+alert('Address cannot be blank');
+return;
+}
+
+
+<!-- Input Email --> 
+<input type="email" id="email" name="email">
+if(emailValue.length === 0) {
+alert('Email cannot be blank');
+return;
+}
+
+
+<!-- Input CoEmail --> 
+<input type="email" id="coemail" name="co-email">
+
+if(coemailValue.length === 0) {
+alert('Your Confirm Email cannot be blank');
+return false;
+
+}
+
+var emailValid = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/
+if(!(emailValue.match(emailValid))) {
+    alert('Email must be  xxxx@xxx.xxx');
+    return;
+}
+
+
+if(emailValue !== coemailValue) {
+alert('Your Confirm Email must be match');
+return false;
+
+}
+
+
+<!-- Input Password --> 
+<input type="password" id="password" name="Password">
+if(passwordValue.length === 0) {
+alert('Your password cannot be blank');
+return false;
+
+}
+
+if(passwordValue.length < 5 || passwordValue.length > 15) {
+alert('Your password must contain between five and 15 alphanumericcharacter');
+return false;
+
+}
+
+
+<!-- Input RePassword --> 
+<input type="password" id="repassword" name="Re-Password">
+
+if(passwordValue !== repasswordValue) {
+alert('Your Confirm Password must match');
+return false;
+}
+
+<!-- Input Phone --> 
+<input type="tel" id="phone" name="phone">
+
+<!-- 10-11 Degits -->
+var phoneReg = /^[0-9]\w{9,10}$/; 
+
+<!-- Only Degits -->
+var phoneReg = /^[0-9]\w/;
+
+
+if(phoneValue.length <= 0) {
+alert('Phone cannot be blank');
+return;
+}
+
+if(!phoneValue.match(phoneReg)) {
+alert('The Mobile must be digits only (from 10-11 digits)');
+return;
+}
+
+
+<!-- Input Comment --> 
+<textarea id="comment" name="comment" rows="4" cols="50"></textarea>
+var cmt = document.getElementById('comment').value;
+
+
+
+<!-- Select --> 
+
+<select name="qualification" id="qualification">
+<option value="--Select--">--Select--</option>
+<option value="Diploma">Diploma</option>
+<option value="Bachelor Degree">Bachelor Degree</option>
+<option value="Master">Master</option>
+</select>
+
+if(qualificationValue === '--Select--') {
+alert('Qualification cannot be blank');
+return;
+}
+
+
+<!-- Check box 1 item --> 
+<input type="checkbox" id="coupon" name="coupon" value="Coupon"> Yes, Sign Me 
+
+
+<!-- Check box items --> 
+
+<input type="checkbox" id="hobbies1" name="hobbies1" value="Shopping">
+<label for="hobbies1"> Shopping</label>
+<input type="checkbox" id="hobbies2" name="hobbies2" value="Eating_out">
+<label for="hobbies2"> Eating out</label>
+<input type="checkbox" id="hobbies3" name="hobbies3" value="Sporting">
+<label for="hobbies3"> Sporting</label>
+
+
+var hob1 ="";
+if(document.getElementById('hobbies1').checked) {
+hob1 = document.getElementById('hobbies1').value;
+}
+
+var hob2 ="";
+if(document.getElementById('hobbies2').checked) {
+hob2 = document.getElementById('hobbies2').value;
+}
+
+var hob3 ="";
+if(document.getElementById('hobbies3').checked) {
+hob3 = document.getElementById('hobbies3').value;
+}
+
+var hobbies = hob1 + "," + hob2 + "," + hob3;
+
+<!-- Button -->
+
+<div class="row">
+    <div class="button">
+        <input type="button" id="submit" name="submit" value="Submit" onclick="checkInputs()">
+        <input type="reset" id="reset" name="reset" value="Reset">
+    </div>
+</div>
+
+<!-- CSS Button -->
+.button {
+    margin: auto;
+    
+}
+
+input#submit,
+input#reset {
+    width: 70px;
+    border-radius: 25px;
+    font-weight: bold;
+}
+
+
+<!-- Event Listen -->
+
+<!-- Tất cả trong function checkInputs() {}; -->
+
+
+function checkInputs(){
+
+
+
+
+<!-- Infomation -->
+
+var info = "";
+
+
+alert(info);
+
+}
+
